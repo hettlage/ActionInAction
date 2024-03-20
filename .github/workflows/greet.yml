@@ -18,6 +18,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          print("Hello {{ inputs.name }}")
-          print("Your importance is: {{ inputs.importance }}")
+          print("Hello ${{ inputs.name }}")
+          print("Your importance is: ${{ inputs.importance }}")
         shell: python
