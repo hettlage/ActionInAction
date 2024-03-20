@@ -1,0 +1,23 @@
+name: Using Python
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: Your name
+        required: true
+        type: string
+      importance:
+        description: Your importance
+        type: choice
+        default: Moderate
+        options: ["High", "Moderate", "Low"]
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          print("Hello {{ inputs.name }}")
+          print("Your importance is: {{ inputs.importance }}
+        shell: python
