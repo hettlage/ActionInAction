@@ -38,3 +38,11 @@ jobs:
             ])
             .addLink('View staging deployment!', 'https://github.com')
             .write()
+      - name: Variable and secret
+        run: |
+          echo "Secret: ${{ secrets.SECRET_VERSION }}"
+          if (( ${{ secrets.SECRET_VERSION }} == 43 )); then
+             echo "Correct secret"
+          fi
+          echo "Variable: ${{ vars.VERSION }}"
+          
