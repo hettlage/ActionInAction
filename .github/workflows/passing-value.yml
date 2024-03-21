@@ -16,4 +16,12 @@ jobs:
       - name: Use the secret output
         run: |
           echo "The secret is ${{ steps.sets-a-secret.outputs.SECRET_NUMBER }}"
+      - name: Define an environment variable
+        run: |
+          echo "NUM_STEPS=42" >> $GITHUB_ENV
+      - name: Show env variable
+        run: |
+          echo "$NUM_STEPS == ${{ env.NUM_STEPS }}"
+          echo "### Summary" >> $GITHUB_STEP_SUMMARY
+          echo "This has _worked_." >> $GITHUB_STEP_SUMMARY
   
