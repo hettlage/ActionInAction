@@ -24,4 +24,17 @@ jobs:
           echo "$NUM_STEPS == ${{ env.NUM_STEPS }}"
           echo "### Summary" >> $GITHUB_STEP_SUMMARY
           echo "This has _worked_." >> $GITHUB_STEP_SUMMARY
-  
+      - name: Write Summary from Action
+        uses: actions/github-script@v6.1.0
+        with:
+          script: |
+            await core.summary
+            .addHeading('Test Results')
+            .addTable([
+              [{data: 'File', header: true}, {data: 'Result', header: true}],
+              ['foo.js', 'Pass ✅'],
+              ['bar.js', 'Fail ❌'],
+              ['test.js', 'Pass ✅']
+            ])
+            .addLink('View staging deployment!', 'https://github.com')
+            .write()
