@@ -1,0 +1,19 @@
+name: Passing content
+
+on:
+  workflow_dispatch:
+
+jobs:
+  passing-content:
+    runs-on: ubuntu-latest
+    steps:
+      - id: sets-a-secret
+        name: Generate a random secret
+        run: |
+          the_secret = ${{ RANDOM }}
+          echo "::add-mask::$the_secret"
+          echo "SECRET_NUMBER=$the_secret" >> $GITHUB_OUTPUT
+      - name: Use the secret output
+        run: |
+          echo "The secret is ${{ steps.sets-a-secret.outputs.SECRET_NUMBER }}
+  
