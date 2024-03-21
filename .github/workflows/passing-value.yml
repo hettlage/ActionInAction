@@ -15,5 +15,5 @@ jobs:
           echo "SECRET_NUMBER=$the_secret" >> $GITHUB_OUTPUT
       - name: Use the secret output
         run: |
-          echo "The secret is ${{ steps.sets-a-secret.outputs.SECRET_NUMBER }}
+          echo "The secret is ${{ steps.sets-a-secret.outputs.SECRET_NUMBER }}"
   
