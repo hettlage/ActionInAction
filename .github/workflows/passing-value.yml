@@ -41,8 +41,10 @@ jobs:
       - name: Variable and secret
         run: |
           echo "Secret: ${{ secrets.SECRET_VERSION }}"
-          if (( ${{ secrets.SECRET_VERSION }} == 43 )); then
+          if (( ${{ secrets.SECRET_VERSION }} == 42 )); then
              echo "Correct secret"
+          else
+             echo "Incorrect secret"
           fi
           echo "Variable: ${{ vars.VERSION }}"
           
