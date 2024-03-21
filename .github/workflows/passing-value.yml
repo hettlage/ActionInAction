@@ -10,7 +10,7 @@ jobs:
       - id: sets-a-secret
         name: Generate a random secret
         run: |
-          the_secret = ${{ RANDOM }}
+          the_secret = $(( RANDOM ))
           echo "::add-mask::$the_secret"
           echo "SECRET_NUMBER=$the_secret" >> $GITHUB_OUTPUT
       - name: Use the secret output
